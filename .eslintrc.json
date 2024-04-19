@@ -1,3 +1,19 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    "next/core-web-vitals",
+    "standard",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:tailwindcss/recommended",
+    "prettier",
+    "prettier/react"
+  ],
+  "plugins": ["react", "prettier"],
+  "rules": {
+    "prettier/prettier": "error",
+    "react/jsx-max-props-per-line": [
+      "error",
+      { "maximum": 1, "when": "multiline" }
+    ]
+  }
 }
