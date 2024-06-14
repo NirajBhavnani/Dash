@@ -63,6 +63,8 @@ const MobileNavbar = () => {
                           alt={link.label}
                           width={20}
                           height={20}
+                          sizes="100vw"
+                          style={{ height: "auto", width: "auto" }}
                         />
                         <p className="font-semibold">{link.label}</p>
                       </Link>
