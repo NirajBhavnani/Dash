@@ -2,31 +2,44 @@
 
 import React, { useState } from "react";
 import HomeCard from "./HomeCard";
-import { MeetingState, homeCardsData } from "@/constants";
 import { useRouter } from "next/navigation";
 
 const MeetingTypeList = () => {
   const router = useRouter();
-  const [meetingState, setMeetingState] = useState<MeetingState>(undefined);
-  
+  const [meetingState, setMeetingState] = useState<
+    "isScheduleMeeting" | "isJoiningMeeting" | "isInstantMeeting" | undefined
+  >(undefined);
+
   return (
     <section className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
-      {homeCardsData.map((card, index) => (
-        <HomeCard
-          key={index}
-          img={card.img}
-          title={card.title}
-          description={card.description}
-          color={card.color}
-          handleClick={() => {
-            if (card.handleClickState === undefined) {
-              router.push("/recordings");
-            } else {
-              setMeetingState(card.handleClickState);
-            }
-          }}
-        />
-      ))}
+      <HomeCard
+        img="/icons/add-meeting.svg"
+        title="New Meeting"
+        description="Start an instant meeting"
+        color="bg-orange-1"
+        handleClick={() => setMeetingState("isInstantMeeting")}
+      />
+      <HomeCard
+        img="/icons/join-meeting.svg"
+        title="Join Meeting"
+        description="via invitation link"
+        color="bg-blue-1"
+        handleClick={() => setMeetingState("isJoiningMeeting")}
+      />
+      <HomeCard
+        img="/icons/schedule.svg"
+        title="Schedule Meeting"
+        description="Plan your meeting"
+        color="bg-purple-1"
+        handleClick={() => setMeetingState("isScheduleMeeting")}
+      />
+      <HomeCard
+        img="/icons/recordings.svg"
+        title="View Recordings"
+        description="Meeting Recordings"
+        color="bg-yellow-1"
+        handleClick={() => router.push("/recordings")}
+      />
     </section>
   );
 };
