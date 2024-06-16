@@ -1,3 +1,4 @@
+// Sidebar component
 export const sidebarLinks = [
   {
     imgURL: "/icons/Home.svg",
@@ -27,35 +28,48 @@ export const sidebarLinks = [
   },
 ];
 
-type MeetingState = 'isScheduleMeeting' | 'isJoiningMeeting' | 'isInstantMeeting' | undefined;
+// MeetingTypeList component
+export type MeetingState =
+  | "isScheduleMeeting"
+  | "isJoiningMeeting"
+  | "isInstantMeeting"
+  | undefined;
 
-export const homeCardsData = [
+interface HomeCardData {
+  img: string;
+  title: string;
+  description: string;
+  color: string;
+  handleClickState: MeetingState;
+}
+
+export const homeCardsData: HomeCardData[] = [
   {
     img: "/icons/add-meeting.svg",
     title: "New Meeting",
     description: "Start an instant meeting",
-    className: "bg-orange-1",
+    color: "bg-orange-1",
     handleClickState: "isInstantMeeting" as MeetingState,
   },
   {
     img: "/icons/join-meeting.svg",
     title: "Join Meeting",
     description: "via invitation link",
-    className: "bg-blue-1",
+    color: "bg-blue-1",
     handleClickState: "isJoiningMeeting" as MeetingState,
   },
   {
     img: "/icons/schedule.svg",
     title: "Schedule Meeting",
     description: "Plan your meeting",
-    className: "bg-purple-1",
+    color: "bg-purple-1",
     handleClickState: "isScheduleMeeting" as MeetingState,
   },
   {
     img: "/icons/recordings.svg",
     title: "View Recordings",
     description: "Meeting Recordings",
-    className: "bg-yellow-1",
+    color: "bg-yellow-1",
     handleClickState: undefined as MeetingState,
   },
 ];
