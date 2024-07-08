@@ -4,6 +4,7 @@ import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "@/components/ui/toaster";
 import "@stream-io/video-react-sdk/dist/css/styles.css"; //This is for StreamTheme default UI css
+import "react-datepicker/dist/react-datepicker.css"; //This is for ReactDatePicker default css
 
 const inter = Inter({ subsets: ["latin"] });
 
